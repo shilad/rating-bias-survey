@@ -5,11 +5,18 @@ class UserController {
 
     def index() { }
 
+<<<<<<< HEAD
 
     def create() {
         def user = new User(email: params.email)
         user.save(failOnError:true)
         user.surveyGroup = (user.id % 4)
+=======
+    def create() {
+        def user = new User(email: params.email)
+        user.save(failOnError:true)
+        user.surveyGroup = (User.count() % 4)
+>>>>>>> e012174f70fb9aeb35268cda9699a680b8339db2
         def userData = [
             user: user.id,
             userGroup: user.surveyGroup
@@ -42,11 +49,14 @@ class UserController {
         render latest as JSON
     }
 
+<<<<<<< HEAD
     def ratedArticles = {
         def user = User.get(params.user);
 
     }
 
+=======
+>>>>>>> e012174f70fb9aeb35268cda9699a680b8339db2
     def comments = {
         def user = User.get(params.userId)
         user.comments = params.comments

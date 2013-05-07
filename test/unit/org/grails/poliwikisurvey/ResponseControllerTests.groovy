@@ -1,7 +1,4 @@
 package org.grails.poliwikisurvey
-
-
-
 import grails.test.mixin.*
 import org.junit.*
 

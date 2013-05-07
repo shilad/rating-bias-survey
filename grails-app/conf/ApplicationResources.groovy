@@ -5,7 +5,6 @@ modules = {
         resource url:'js/jquery.cookie.js'
         resource url:'js/jquery.placeholder.js'
         resource url:'js/jquery.tooltipster.min.js'
-        // resource url:'js/main.js'
         resource url:'js/application.js'
     }
     mainpage {

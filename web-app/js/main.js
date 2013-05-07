@@ -112,6 +112,7 @@
 
 
 
+
 	$(".panel").find("input").on("click", function(e){
 		var $this = $(this);
 		sendSurveyResponse($this.attr("class"), $this.attr("id"), $this.val());
@@ -371,7 +372,6 @@
 				    	$.cookie('user', data.user, { expires: 7, path: '/' });
 				       	setUpSurveyDoms(data.userGroup);
 						addNavListeners();
-						console.log("hi there");
 						addWidgetListeners();
 
 				    },
