@@ -1,28 +1,6 @@
 	// function:
 (function( $ ){
-	var template = Handlebars.compile($('#template').html()),
-		idleTime = 0;
-	$(".main-container").append(template(data));
-
-
-
-	$(".panel").find("input").on("click", function(e){
-		var $this = $(this);
-		sendSurveyResponse($this.attr("class"), $this.attr("id"), $this.val());
-	})
-
-	$("button.depth.negative, button.depth.positive").on("click",function(){
-		var $this = $(this),
-			opposite;
-		if ($this.hasClass("negative")){
-			opposite = $this.parent().find("button.depth.positive");
-		} else {
-			opposite = $this.parent().find("button.depth.negative");
-		}
-		$this.addClass("checked");
-		opposite.removeClass("checked");
-		sendSurveyResponse($this.data("field"), $this.attr("id"), $this.val());
-	})
+	var idleTime = 0;
 
 	// console.log($("#beginDiv > button")[1]);
 
@@ -204,7 +182,8 @@
 		    	id: input,
 		    	ratingValue: value,
 		    	userId: $.cookie("user"),
-		    	domId: domId
+		    	domId: domId,
+		    	articleId: domId.split("-")[1]
 		    },
 		    success: function(data) {
 		    	var artifact = $("div#wp").parents(".artifact"),
@@ -457,12 +436,12 @@
     }
 
     function articlesLoaded(articles) {
-        var template = Handlebars.compile($('#template').html()),
-            idleTime = 0;
+        var template = Handlebars.compile($('#template').html());
         $(".main-container").append(template(articles));
 
         $(".panel").find("input").on("click", function(e){
             var $this = $(this);
+
             sendSurveyResponse($this.attr("class"), $this.attr("id"), $this.val());
         })
 

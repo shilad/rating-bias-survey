@@ -41,6 +41,13 @@ class UserController {
         render latest as JSON
     }
 
+
+    def ratedArticles = {
+        def user = User.get(params.user),
+            ratedArticles = user.responses.findAll.unique()
+        println ratedArticles
+    }
+
     def comments = {
         def user = User.get(params.userId)
         user.comments = params.comments

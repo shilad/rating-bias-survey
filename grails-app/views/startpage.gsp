@@ -160,5 +160,6 @@
             	<div>This survey was developed by <a href="mailto:emmyrlim@gmail.com">Emmy Lim</a> with supervision from <a href="mailto:ssen@macalester.edu">Shilad Sen</a></div>
             </footer>
         </div>
+        <g:javascript library="mainpage"/>
 	</body>
 </html>
