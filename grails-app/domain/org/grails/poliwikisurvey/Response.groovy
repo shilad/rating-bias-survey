@@ -2,6 +2,7 @@ package org.grails.poliwikisurvey
 
 class Response {
 
+    Article article
     String ratingId
     String domId
     int value

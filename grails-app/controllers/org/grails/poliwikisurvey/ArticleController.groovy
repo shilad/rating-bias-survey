@@ -13,4 +13,10 @@ class ArticleController {
     def list() {
         render Article.list() as JSON
     }
+
+    def shuffled() {
+        List<Article> l = Article.list()
+        Collections.shuffle(l)
+        render l as JSON
+    }
 }
