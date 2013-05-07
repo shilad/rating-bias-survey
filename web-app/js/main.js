@@ -1,5 +1,28 @@
 	// function:
 (function( $ ){
+	var template = Handlebars.compile($('#template').html()),
+		idleTime = 0;
+	$(".main-container").append(template(data));
+
+
+
+	$(".panel").find("input").on("click", function(e){
+		var $this = $(this);
+		sendSurveyResponse($this.attr("class"), $this.attr("id"), $this.val());
+	})
+
+	$("button.depth.negative, button.depth.positive").on("click",function(){
+		var $this = $(this),
+			opposite;
+		if ($this.hasClass("negative")){
+			opposite = $this.parent().find("button.depth.positive");
+		} else {
+			opposite = $this.parent().find("button.depth.negative");
+		}
+		$this.addClass("checked");
+		opposite.removeClass("checked");
+		sendSurveyResponse($this.data("field"), $this.attr("id"), $this.val());
+	})
 
 	// console.log($("#beginDiv > button")[1]);
 
@@ -89,7 +112,7 @@
 					position: 'left',
 					interactive: true,
 					animation: 'grow',
-					trigger:'click',
+					trigger:'click'
 					// functionReady: function(origin, tooltip){
 					// 	origin.on("click", nextArticleHandler);
 					// 	// addForwardListener(origin,webArtifacts,key)
@@ -112,6 +135,7 @@
 			}
 		});
 	}
+//todo: merge consent forms,
 
 	function sendAction(action){
 		var tracker = $(".pageTracker > span"),
