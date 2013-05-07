@@ -9,7 +9,6 @@ class ResponseController {
     def updateResponses = {
     	def ratingIdString = params.id as String
 
-
     	def responseOld = Response.findNewestByRatingId(ratingIdString)
     	if (responseOld) {
     		responseOld.newest = false;

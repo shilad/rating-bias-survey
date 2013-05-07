@@ -5,11 +5,10 @@ class UserController {
 
     def index() { }
 
-
     def create() {
         def user = new User(email: params.email)
         user.save(failOnError:true)
-        user.surveyGroup = (user.id % 4)
+        user.surveyGroup = (User.count() % 4)
         def userData = [
             user: user.id,
             userGroup: user.surveyGroup

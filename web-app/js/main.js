@@ -375,7 +375,6 @@
 				    	$.cookie('user', data.user, { expires: 7, path: '/' });
 				       	setUpSurveyDoms(data.userGroup);
 						addNavListeners();
-						console.log("hi there");
 						addWidgetListeners();
 
 				    },
